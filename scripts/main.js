@@ -204,80 +204,26 @@ const galleryPrevHandler = () => {
   viewerEl.src = galleryNames[indexOfCurrent];
 };
 
-const nameInput = document.getElementById("name");
-const numberInput = document.getElementById("number");
-const emailInput = document.getElementById("email");
-const messageInput = document.getElementById("message");
+const fields = ["name", "number", "email", "message"];
+const directions = ["T", "R", "B", "L"];
 
-const nameInputT = document.getElementById("nameInputT");
-const nameInputR = document.getElementById("nameInputR");
-const nameInputB = document.getElementById("nameInputB");
-const nameInputL = document.getElementById("nameInputL");
+fields.forEach((field) => {
+  const input = document.getElementById(field);
+  const inputDirections = directions.map((dir) =>
+    document.getElementById(`${field}Input${dir}`)
+  );
 
-const numberInputT = document.getElementById("numberInputT");
-const numberInputR = document.getElementById("numberInputR");
-const numberInputB = document.getElementById("numberInputB");
-const numberInputL = document.getElementById("numberInputL");
+  const addOrRemoveClass = (method) => {
+    inputDirections.forEach((inputDir) => {
+      if (inputDir.id.includes("InputT") || inputDir.id.includes("InputB")) {
+        inputDir.classList[method]("wFill");
+      }
+      if (inputDir.id.includes("InputR") || inputDir.id.includes("InputL")) {
+        inputDir.classList[method]("hFill");
+      }
+    });
+  };
 
-const emailInputT = document.getElementById("emailInputT");
-const emailInputR = document.getElementById("emailInputR");
-const emailInputB = document.getElementById("emailInputB");
-const emailInputL = document.getElementById("emailInputL");
-
-const messageInputT = document.getElementById("messageInputT");
-const messageInputR = document.getElementById("messageInputR");
-const messageInputB = document.getElementById("messageInputB");
-const messageInputL = document.getElementById("messageInputL");
-
-nameInput.addEventListener("focus", () => {
-  nameInputT.classList.add("wFill");
-  nameInputR.classList.add("hFill");
-  nameInputB.classList.add("wFill");
-  nameInputL.classList.add("hFill");
+  input.addEventListener("focus", () => addOrRemoveClass("add"));
+  input.addEventListener("blur", () => addOrRemoveClass("remove"));
 });
-nameInput.addEventListener("blur", () => {
-  nameInputT.classList.remove("wFill");
-  nameInputR.classList.remove("hFill");
-  nameInputB.classList.remove("wFill");
-  nameInputL.classList.remove("hFill");
-});
-
-numberInput.addEventListener("focus", () => {
-  numberInputT.classList.add("wFill");
-  numberInputR.classList.add("hFill");
-  numberInputB.classList.add("wFill");
-  numberInputL.classList.add("hFill");
-});
-numberInput.addEventListener("blur", () => {
-  numberInputT.classList.remove("wFill");
-  numberInputR.classList.remove("hFill");
-  numberInputB.classList.remove("wFill");
-  numberInputL.classList.remove("hFill");
-});
-
-emailInput.addEventListener("focus", () => {
-  emailInputT.classList.add("wFill");
-  emailInputR.classList.add("hFill");
-  emailInputB.classList.add("wFill");
-  emailInputL.classList.add("hFill");
-});
-emailInput.addEventListener("blur", () => {
-  emailInputT.classList.remove("wFill");
-  emailInputR.classList.remove("hFill");
-  emailInputB.classList.remove("wFill");
-  emailInputL.classList.remove("hFill");
-});
-
-messageInput.addEventListener("focus", () => {
-  messageInputT.classList.add("wFill");
-  messageInputR.classList.add("hFill");
-  messageInputB.classList.add("wFill");
-  messageInputL.classList.add("hFill");
-});
-messageInput.addEventListener("blur", () => {
-  messageInputT.classList.remove("wFill");
-  messageInputR.classList.remove("hFill");
-  messageInputB.classList.remove("wFill");
-  messageInputL.classList.remove("hFill");
-});
-
