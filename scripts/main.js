@@ -68,6 +68,10 @@ var swiper1 = new Swiper(".swiper", {
     prevEl: ".swiper-button-prev-1",
     nextEl: ".swiper-button-next-1",
   },
+  lazy: {
+    loadPrevNext: true,
+    loadOnTransitionStart: true,
+  },
   spaceBetween: 60,
   loop: true,
 });
@@ -92,6 +96,10 @@ var swiper2 = new Swiper(".swiper2", {
   navigation: {
     prevEl: ".swiper-button-prev-2",
     nextEl: ".swiper-button-next-2",
+  },
+  lazy: {
+    loadPrevNext: true,
+    loadOnTransitionStart: true,
   },
   spaceBetween: 10,
   loop: true,
@@ -199,3 +207,4 @@ fields.forEach((field) => {
   input.addEventListener("focus", () => addOrRemoveClass("add"));
   input.addEventListener("blur", () => addOrRemoveClass("remove"));
 });
+
