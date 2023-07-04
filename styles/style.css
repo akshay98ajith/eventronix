@@ -1,28 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@200;300;400;500;600&display=swap");
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
 img {
   display: block;
   max-width: 100%;
   border-style: none;
   height: auto;
-}
-
-html {
-  -webkit-text-size-adjust: none;
-     -moz-text-size-adjust: none;
-          text-size-adjust: none;
-  font-size: 20px;
-  line-height: 1.6;
-  overflow-x: hidden !important;
-  overflow-y: hidden;
 }
 
 body {
@@ -78,65 +59,6 @@ summary,
     opacity: 0;
   }
 }
-.load {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 9999;
-  background: #1a1a1a;
-  display: grid;
-  place-items: center;
-  /* loader 4 */
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.load .loader {
-  position: relative;
-  margin: 75px auto;
-  width: 150px;
-  height: 150px;
-  display: block;
-  overflow: hidden;
-}
-.load .loader div {
-  height: 100%;
-}
-.load .loader3,
-.load .loader3 div {
-  border-radius: 50%;
-  padding: 8px;
-  border: 2px solid transparent;
-  animation: rotate linear 3.5s infinite;
-  border-top-color: #4f4f4f;
-  border-left-color: #ef3c47;
-  animation-timing-function: cubic-bezier(0.55, 0.38, 0.21, 0.88);
-  animation-duration: 3s;
-}
-.load div:hover {
-  animation-play-state: paused;
-}
-.load .loader,
-.load .loader * {
-  will-change: transform;
-}
-
-main,
-header,
-footer {
-  display: block;
-}
-
 header {
   position: fixed;
   top: 0;

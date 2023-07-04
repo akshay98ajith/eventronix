@@ -13,29 +13,12 @@ $contact-bg: #201f1f;
 $input-bg: #343333;
 $input-border: #676767;
 
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: none;
-    // background: #14d93f0f;
-}
 
 img {
     display: block;
     max-width: 100%;
     border-style: none;
     height: auto;
-}
-
-html {
-    text-size-adjust: none;
-    font-size: 20px;
-    line-height: 1.6;
-    overflow-x: hidden !important;
-    overflow-y: hidden;
 }
 
 body {
@@ -92,73 +75,9 @@ summary,
         opacity: 0;
     }
 }
-.load {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 9999;
-    background: #1a1a1a;
-    display: grid;
-    place-items: center;
 
-    @keyframes rotate {
-        0% {
-            transform: rotate(0deg);
-        }
-        50% {
-            transform: rotate(180deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
 
-    @mixin loaderDivMixin {
-        border-radius: 50%;
-        padding: 8px;
-        border: 2px solid transparent;
-        animation: rotate linear 3.5s infinite;
-    }
 
-    .loader {
-        position: relative;
-        margin: 75px auto;
-        width: 150px;
-        height: 150px;
-        display: block;
-        overflow: hidden;
-        div {
-            height: 100%;
-        }
-    }
-    .loader3,
-    .loader3 div {
-        @include loaderDivMixin;
-        border-top-color: $dark-fade;
-        border-left-color: $primary-color;
-        animation-timing-function: cubic-bezier(0.55, 0.38, 0.21, 0.88);
-        animation-duration: 3s;
-    }
-
-    /* loader 4 */
-
-    div:hover {
-        animation-play-state: paused;
-    }
-
-    .loader,
-    .loader * {
-        will-change: transform;
-    }
-}
-
-main,
-header,
-footer {
-    display: block;
-}
 
 header {
     position: fixed;

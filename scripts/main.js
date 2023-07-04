@@ -1,32 +1,3 @@
-// const end = Date.now() + 15 * 500;
-
-// // go Buckeyes!
-// const colors = ["#ef3c47", "#ffffff"];
-
-// (function frame() {
-//   confetti({
-//     particleCount: 1,
-//     angle: 60,
-//     spread: 55,
-//     origin: { x: 0 },
-//     colors: colors,
-//   });
-
-//   confetti({
-//     particleCount: 1,
-//     angle: 120,
-//     spread: 55,
-//     origin: { x: 1 },
-//     colors: colors,
-//   });
-
-//   if (Date.now() < end) {
-//     requestAnimationFrame(frame);
-//   }
-// })();
-
-// document.getElementById("run").addEventListener("click", run);
-
 const loader = document.getElementById("loader");
 const main = document.documentElement;
 
@@ -47,7 +18,6 @@ function removeLoader(loader) {
   loader.remove();
 }
 
-// Function to handle load
 function handleLoad() {
   setTimeout(() => hideLoader(loader, main), 300);
   setTimeout(() => updateSwiper(swiper1, swiper2), 300);
@@ -186,12 +156,14 @@ function getImageNamesInFolder(folderPath) {
 }
 const folderPath = "assets/gallery/";
 
-getImageNamesInFolder(folderPath)
-  .then((imageNames) => {
-    galleryNames = imageNames;
-    indexOfCurrent = 0;
-  })
-  .catch((error) => console.error("Error:", error.message));
+window.addEventListener("DOMContentLoaded", () => {
+  getImageNamesInFolder(folderPath)
+    .then((imageNames) => {
+      galleryNames = imageNames;
+      indexOfCurrent = 0;
+    })
+    .catch((error) => console.error("Error:", error.message));
+});
 
 const galleryNextHandler = () => {
   indexOfCurrent = (indexOfCurrent + 1) % galleryNames.length;
